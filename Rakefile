@@ -19,13 +19,10 @@ task :release do
 	sh "git release"
 end
 
-require 'rdoc/task'
+require 'yard'
 
-RDoc::Task.new do |rd|
-	rd.main = "README.md"
-	rd.title = 'rlimit'
-	rd.markup = "markdown"
-	rd.rdoc_files.include("README.md", "lib/**/*.rb")
+YARD::Rake::YardocTask.new :doc do |yardoc|
+	yardoc.files = ["README.md", "lib/**/*.rb"]
 end
 
 desc "Run guard"
