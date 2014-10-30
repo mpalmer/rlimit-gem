@@ -187,8 +187,8 @@ module RLimit
 	#:nodoc:
 	# Take something that may or may not be a valid-looking resource
 	# specifier, and turn it into an integer that could well be a valid valid
-	# for {get,set}rlimit.  Raise all sorts of ArgumentError if we can't work
-	# out what's going on.
+	# for `{get,set}rlimit`.  Raise all sorts of ArgumentError if we can't
+	# work out what's going on.
 	def self.res_xlat(r)
 		err = "Invalid rlimit resource specifier #{r.inspect}"
 		
