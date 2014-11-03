@@ -11,8 +11,6 @@ rescue Bundler::BundlerError => e
 	exit e.status_code
 end
 
-require 'git-version-bump/rake-tasks'
-
 Bundler::GemHelper.install_tasks
 
 task :release do
@@ -22,7 +20,7 @@ end
 require 'yard'
 
 YARD::Rake::YardocTask.new :doc do |yardoc|
-	yardoc.files = ["README.md", "lib/**/*.rb"]
+	yardoc.files = %w{lib/**/*.rb - README.md}
 end
 
 desc "Run guard"
